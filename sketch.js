@@ -1,5 +1,5 @@
 // Change these values, save, and try drawing again.
-let brushSize = 40;
+let brushSize = 35;
 let ink = "#000000";
 let segments = 50;
 let kaleidoAngle = 0;
@@ -25,7 +25,7 @@ function mousePressed() {
 
 function draw() {
   if (autoMode) {
-    background(255, 122, 200);
+    background(255, 122, 210);
     kaleidoAngle += autoSpeed;
 
     push();
