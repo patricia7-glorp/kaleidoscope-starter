@@ -10,7 +10,7 @@ let autoShapeSize = 40;
 
 function setup() {
   //canvas o fill available space in the window
-  createCanvas(720, 720);
+  createCanvas(720, 720).parent("canvas-wrap");
   background(255, 122, 200);
   strokeCap(SQUARE);
   angleMode(DEGREES);

@@ -3,19 +3,144 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>My kaleidoscope</title>
+  <meta name="theme-color" content="#e5f1d6">
+  <meta name="description" content="Make your own playful, ever-changing patterns with Glorpy-scope.">
+  <title>Glorpy-scope</title>
   <style>
-    body { margin: 0; background: #0c0f18; color: #c6c9d4; font: 15px/1.5 system-ui, sans-serif; }
-    header { max-width: 720px; margin: 24px auto 16px; padding: 0 16px; }
-    h1 { font-size: 22px; margin: 0 0 6px; color: #f1f1ed; }
-    p { margin: 0; }
-    main { width: fit-content; margin: 0 auto 24px; }
-    canvas { display: block; max-width: calc(100vw - 32px); height: auto !important; }
+    :root {
+      color-scheme: light;
+      font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+      color: #243b2b;
+      background: #e5f1d6;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      min-height: 100vh;
+      margin: 0;
+      padding: clamp(32px, 7vh, 72px) 20px 48px;
+      background:
+        radial-gradient(ellipse at 50% 0%, #f3f6df 0, transparent 55%),
+        #e5f1d6;
+      color: #243b2b;
+      font: 16px/1.5 "Trebuchet MS", "Segoe UI", sans-serif;
+    }
+
+    .intro {
+      max-width: 780px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .eyebrow {
+      margin: 0 0 8px;
+      color: #58745d;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0;
+      color: #294633;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(3rem, 9vw, 6.25rem);
+      font-weight: 700;
+      letter-spacing: -0.065em;
+      line-height: 0.98;
+    }
+
+    .description {
+      max-width: 470px;
+      margin: 18px auto 0;
+      color: #4d6651;
+      font-size: clamp(1rem, 2vw, 1.125rem);
+    }
+
+    main {
+      max-width: 780px;
+      margin: 30px auto 0;
+      text-align: center;
+    }
+
+    .instructions {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px 18px;
+      margin: 0;
+      color: #35533c;
+      font-size: 0.9rem;
+    }
+
+    .instructions span {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    kbd {
+      min-width: 1.6em;
+      padding: 1px 6px;
+      border: 1px solid #afc4a6;
+      border-radius: 6px;
+      background: #f5f6e8;
+      color: #294633;
+      font: 700 0.8rem/1.5 "Trebuchet MS", "Segoe UI", sans-serif;
+      box-shadow: 0 1px 0 #afc4a6;
+    }
+
+    .keyboard-note {
+      margin: 8px 0 0;
+      color: #66806a;
+      font-size: 0.8rem;
+    }
+
+    #canvas-wrap {
+      width: min(100%, 744px);
+      margin: 22px auto 0;
+      padding: 12px;
+      overflow: hidden;
+      border: 1px solid #cfddc2;
+      border-radius: 24px;
+      background: #f7f7ec;
+      box-shadow: 0 18px 45px rgb(49 76 48 / 12%);
+    }
+
+    canvas {
+      display: block;
+      max-width: 100%;
+      height: auto !important;
+      margin: 0 auto;
+      border-radius: 14px;
+    }
+
+    @media (max-width: 520px) {
+      body { padding: 36px 14px 28px; }
+      main { margin-top: 24px; }
+      #canvas-wrap { padding: 8px; border-radius: 18px; }
+      canvas { border-radius: 12px; }
+    }
   </style>
 </head>
 <body>
-  <header><h1>My kaleidoscope</h1><p>Drag to draw · C to clear · S to save a PNG</p></header>
-  <main></main>
+  <header class="intro">
+    <p class="eyebrow">A little world of patterns</p>
+    <h1>Glorpy-scope</h1>
+    <p class="description">A playful kaleidoscope for making wonderfully wiggly, mirrored marks.</p>
+  </header>
+  <main>
+    <p class="instructions" aria-label="How to use the kaleidoscope">
+      <span>Drag to draw</span>
+      <span><kbd>A</kbd> animate</span>
+      <span><kbd>C</kbd> clear</span>
+      <span><kbd>S</kbd> save PNG</span>
+    </p>
+    <p class="keyboard-note">Click the artwork before using keyboard shortcuts.</p>
+    <div id="canvas-wrap" role="region" aria-label="Interactive Glorpy-scope artwork"></div>
+  </main>
   <script src="libraries/p5.min.js"></script>
   <script src="sketch.js"></script>
 </body>
