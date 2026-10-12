@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>My kaleidoscope</title>
+  <style>
+    body { margin: 0; background: #0c0f18; color: #c6c9d4; font: 15px/1.5 system-ui, sans-serif; }
+    header { max-width: 720px; margin: 24px auto 16px; padding: 0 16px; }
+    h1 { font-size: 22px; margin: 0 0 6px; color: #f1f1ed; }
+    p { margin: 0; }
+    main { width: fit-content; margin: 0 auto 24px; }
+    canvas { display: block; max-width: calc(100vw - 32px); height: auto !important; }
+  </style>
+</head>
+<body>
+  <header><h1>My kaleidoscope</h1><p>Drag to draw · C to clear · S to save a PNG</p></header>
+  <main></main>
+  <script src="libraries/p5.min.js"></script>
+  <script src="sketch.js"></script>
+</body>
+</html>
